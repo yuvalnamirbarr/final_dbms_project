@@ -4,31 +4,31 @@
 [![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
 [![Pandas](https://img.shields.io/badge/Pandas-Data%20Processing-150458?style=flat&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
 
-> **Producer's Edge** is an end-to-end relational database and analytics platform tailored for film producers and studio executives[cite: 5]. By normalizing large-scale Kaggle movie datasets into an optimized MySQL architecture, the system provides high-speed analytics for concept validation, talent casting, and market trend discovery[cite: 3, 5].
+> **Producer's Edge** is an end-to-end relational database and analytics platform tailored for film producers and studio executives. By normalizing large-scale Kaggle movie datasets into an optimized MySQL architecture, the system provides high-speed analytics for concept validation, talent casting, and market trend discovery.
 
 ---
 
 ## 📌 Key Modules & Features
 
-The system exposes three core modules via a graphical decision-support interface[cite: 5]:
+The system exposes three core modules via a graphical decision-support interface:
 
 ### 1. 🔍 Concept & Title Analysis
-- **Plot Concept Discovery:** Utilizes MySQL FULLTEXT natural-language searching across plot overviews to retrieve financially comparable films, displaying Budget, Revenue, and calculated ROI Ratio[cite: 3, 6].
-- **Competitor Title Search:** Matches title keywords to assess competitor reception, voter engagement, and historical popularity metrics[cite: 3, 6].
+- **Plot Concept Discovery:** Utilizes MySQL FULLTEXT natural-language searching across plot overviews to retrieve financially comparable films, displaying Budget, Revenue, and calculated ROI Ratio.
+- **Competitor Title Search:** Matches title keywords to assess competitor reception, voter engagement, and historical popularity metrics.
 
 ### 2. 🌟 Talent & Casting Intelligence
-- **High-Performing Actor Pairs ("Power Couples"):** Analyzes co-star chemistry by running self-joins on cast records (cast_order < 10), computing collaborative average ratings filtered by minimum shared projects[cite: 3, 6].
-- **Top-Grossing Directors:** Evaluates lifetime box-office performance by aggregating worldwide movie revenues per director[cite: 3, 6].
+- **High-Performing Actor Pairs ("Power Couples"):** Analyzes co-star chemistry by running self-joins on cast records (cast_order < 10), computing collaborative average ratings filtered by minimum shared projects.
+- **Top-Grossing Directors:** Evaluates lifetime box-office performance by aggregating worldwide movie revenues per director.
 
 ### 3. 📈 Market Trends & Genre Analytics
-- **Lucrative Genre Mashups:** Detects high-performing multi-genre combinations (e.g., Adventure + Fantasy) through self-joining junction tables, dynamic revenue threshold filtering, and average box-office aggregation[cite: 3, 7].
+- **Lucrative Genre Mashups:** Detects high-performing multi-genre combinations (e.g., Adventure + Fantasy) through self-joining junction tables, dynamic revenue threshold filtering, and average box-office aggregation.
 
 ---
 
 ## 🏛️ Database Architecture & Design
 
 ### Relational Schema (3NF)
-Raw nested JSON structures (cast, crew, genres, tags) were normalized into a clean relational schema to ensure referential integrity, eliminate anomalies, and enable high-performance indexing[cite: 3]:
+Raw nested JSON structures (cast, crew, genres, tags) were normalized into a clean relational schema to ensure referential integrity, eliminate anomalies, and enable high-performance indexing:
 
     movies ---< movie_genres >--- genres
       |
@@ -41,23 +41,23 @@ Raw nested JSON structures (cast, crew, genres, tags) were normalized into a cle
       |---< movie_ratings_summary (1:1)
 
 ### Entities & Relationships
-- **Core Entities:** `movies`, `genres`, `people`, `keywords`, `movie_ratings_summary`[cite: 3].
-- **Junction Tables:** `movie_genres`, `movie_cast`, `movie_crew`, `movie_keywords` with composite primary keys ensuring unique relationship mappings and fast associative lookups[cite: 3].
-- **Referential Integrity:** Enforced via `FOREIGN KEY` constraints configured with `ON DELETE CASCADE` and `ON UPDATE CASCADE`[cite: 3].
+- **Core Entities:** `movies`, `genres`, `people`, `keywords`, `movie_ratings_summary`.
+- **Junction Tables:** `movie_genres`, `movie_cast`, `movie_crew`, `movie_keywords` with composite primary keys ensuring unique relationship mappings and fast associative lookups.
+- **Referential Integrity:** Enforced via `FOREIGN KEY` constraints configured with `ON DELETE CASCADE` and `ON UPDATE CASCADE`.
 
 ---
 
 ## ⚡ Performance Optimizations & Indexing
 
-To support fast complex joins and analytical aggregations[cite: 3]:
-- **Clustered Indexes:** Primary keys on every base and junction table[cite: 3].
+To support fast complex joins and analytical aggregations:
+- **Clustered Indexes:** Primary keys on every base and junction table.
 - **Full-Text Search Indexes:**
-  - `FULLTEXT idx_ft_title (title)` for instant competitor searches[cite: 3].
-  - `FULLTEXT idx_ft_overview (overview)` for natural language plot queries[cite: 3].
+  - `FULLTEXT idx_ft_title (title)` for instant competitor searches.
+  - `FULLTEXT idx_ft_overview (overview)` for natural language plot queries.
 - **B-Tree & Composite Indexes:**
-  - `INDEX idx_revenue (revenue)` on `movies` for sorting box-office queries and ROI calculations[cite: 3].
-  - `INDEX idx_movie_cast_order (movie_id, cast_order, person_id)` on `movie_cast` to accelerate self-joins and early filtering[cite: 3].
-  - `INDEX idx_job (job)` on `movie_crew` to quickly filter director roles[cite: 3].
+  - `INDEX idx_revenue (revenue)` on `movies` for sorting box-office queries and ROI calculations.
+  - `INDEX idx_movie_cast_order (movie_id, cast_order, person_id)` on `movie_cast` to accelerate self-joins and early filtering.
+  - `INDEX idx_job (job)` on `movie_crew` to quickly filter director roles.
 
 ---
 
@@ -79,8 +79,8 @@ To support fast complex joins and analytical aggregations[cite: 3]:
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Python 3.9+[cite: 3]
-- MySQL Server 8.0+[cite: 3]
+- Python 3.9+
+- MySQL Server 8.0+
 
 ### Installation & Setup
 
@@ -92,7 +92,7 @@ To support fast complex joins and analytical aggregations[cite: 3]:
    pip install -r requirements.txt
 
 3. **Configure Database Credentials:**
-   Update `config.py` with your MySQL connection parameters[cite: 3].
+   Update `config.py` with your MySQL connection parameters.
 
 4. **Initialize Schema & Load Data:**
    python src/create_db_script.py
