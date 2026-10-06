@@ -5,9 +5,7 @@
 [![Pandas](https://img.shields.io/badge/Pandas-Data%20Processing-150458?style=flat&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
 
 > **Producer's Edge** is an end-to-end relational database and analytics platform tailored for film producers and studio executives. By normalizing large-scale Kaggle movie datasets into an optimized MySQL architecture, the system provides high-speed analytics for concept validation, talent casting, and market trend discovery.
-<img width="2000" height="2588" alt="image" src="https://github.com/user-attachments/assets/2d27de1d-fb66-44a5-a0a1-2f30d34dde1b" />
-
-
+<img width="772" height="420" alt="image" src="https://github.com/user-attachments/assets/33440aa9-e3d9-4320-a7fd-13cada2f6384" />
 ---
 
 ## 📌 Key Modules & Features
