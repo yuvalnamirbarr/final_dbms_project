@@ -6,6 +6,7 @@
 
 > **Producer's Edge** is an end-to-end relational database and analytics platform tailored for film producers and studio executives. By normalizing large-scale Kaggle movie datasets into an optimized MySQL architecture, the system provides high-speed analytics for concept validation, talent casting, and market trend discovery.
 <img width="772" height="420" alt="image" src="https://github.com/user-attachments/assets/33440aa9-e3d9-4320-a7fd-13cada2f6384" />
+
 ---
 
 ## 📌 Key Modules & Features
